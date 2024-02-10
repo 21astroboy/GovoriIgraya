@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Jost:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{css/styles.css}">
+  <link rel="icon" type="image/x-icon" th:href="@{assets/icon.svg}">
+  <title>Говори Играя</title>
+</head>
+<body class="col" id="error-page">
+  <a th:href="@{/}"><img  th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a>
+  <div>Эх, вы попали куда-то не туда</div>
+  <a th:href="@{/}"><div class="accent-block">Вернуться на главную</div></a>
+</body>
+</html>

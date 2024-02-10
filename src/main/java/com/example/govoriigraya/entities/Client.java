@@ -20,11 +20,11 @@ public class Client {
     private Long id;
     @Column(name = "fullname")
     @NotEmpty(message = "Fullname cannot be empty")
-    @Pattern(regexp = "^[А-Яа-яЁ\\-]+$", message = "Fullname must contain only Cyrillic characters and hyphens")
+    @Pattern(regexp = "^[А-Яа-яЁ\\s\\-]+$", message = "Fullname must contain only Cyrillic characters and hyphens")
     private String fullname;
 
     @Column(name = "phone")
-    @Pattern(regexp = "^(\\+7|7|8)?[\\s\\-]?\\(?[489][0-9]{2}\\)?[\\s\\-]?[0-9]{3}[\\s\\-]?[0-9]{2}[\\s\\-]?[0-9]{2}$",
+    @Pattern(regexp = "^(\\+7|7|8)?[489][0-9]{9}$",
             message = "Invalid phone number format")
     private String phone;
     @Column(name = "mail")

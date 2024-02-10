@@ -1,6 +1,6 @@
 package com.example.govoriigraya.controllers;
 
-import com.example.govoriigraya.services.ClientService;
+import com.example.govoriigraya.services.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -10,14 +10,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class ClientController {
+public class ReviewController {
     @Autowired
-    private ClientService clientService;
-    @PostMapping(value = "/appointment", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
-    public ResponseEntity<Object> appointment(@RequestParam MultiValueMap<String, String> form) {
-
-        clientService.saveClient(form.getFirst("name"), form.getFirst("phone"), form.getFirst("email"));
+    private CommentService commentService;
+    @PostMapping(value = "/review", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Object> review(@RequestParam MultiValueMap<String, String> form) {
+        commentService.saveComment(form.getFirst("name"), form.getFirst("review"));
         return ResponseEntity.ok().build();
     }
-
 }

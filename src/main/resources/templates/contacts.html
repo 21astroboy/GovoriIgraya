@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Jost:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/styles.css}">
+    <link rel="icon" type="image/x-icon" th:href="@{assets/icon.svg}">
+    <title>Говори Играя</title>
+</head>
+<body>
+    <header id="main-header">
+        <div id="main">
+            <div class="col growing">
+                <a th:href="@{/}" class="first-row"><img  th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a>
+            </div>
+            <div class="mobile-hide">
+                Логопедический Центр
+            </div>
+            <div class="col growing">
+                <a class="first-row widescreen-hide accent-block" th:href="@{/appointment}" id="appointment-link">ЗАПИСЬ</a>
+                <div class="hamburger widescreen-show">
+                    <span class="line" id="line1"></span>
+                    <span class="line" id="line2"></span>
+                    <span class="line" id="line3"></span>
+                </div>
+            </div>    
+        </div>
+        <div id="hamburger-links" style="display: none;">
+            <a th:href="@{/contacts}" class="mobile-show">Москва, Введенского 3к1</a>
+            <a th:href="@{/contacts}" class="mobile-show">+7 (987) 621-58-09</a>
+            <a th:href="@{/#illnesses}">с какими нарушениями помогаем?</a>
+            <a th:href="@{/#reviews}">отзывы о нас</a>
+            <a th:href="@{/#prices}">услуги</a>
+            <a th:href="@{/appointment}" class="accent-text">запись</a>
+        </div>
+    </header>
+    <main id="contacts-page" class="section">
+        <div id="contacts-section">
+            <div class="block">
+                <div class="header">
+                    Адрес
+                </div>
+                <div class="content">
+                    <p class="address">Москва, м. Беляево, ул. Введенского 3к1</p>
+                </div>
+            </div>
+            <div class="block">
+                <div class="header">
+                    Контакты
+                </div>
+                <div class="content">
+                    <div>
+                        <p>info@govorigraya.ru</p>
+                        <p>+7 (987) 621-58-09</p>
+                    </div>
+                </div>
+            </div>
+            <div class="block">
+                <div class="header">
+                    График работы
+                </div>
+                <div class="content">
+                    <div>
+                        <p>ПН-ПТ: 8:00-21:00</p>
+                    </div>
+                    <div>
+                        <p>СБ-ВС: 10:00-19:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="maps-section">
+            <div id="moscow-map" class="map"></div>
+        </div>
+    </main>
+    <footer>
+        <img th:src="@{assets/logo.svg}" alt="логотип" id="logo">
+        <div id="line"></div>
+        <div id="info">
+            <a th:href="@{/}">говорииграя 2014-2024 все права защищены</a>
+            <a th:href="@{/privacy}">политика обработки персональных данных</a>
+            <a th:href="@{/privacy}">пользовательское соглашение</a>
+        </div>
+    </footer>
+    <script src="https://api-maps.yandex.ru/v3/?apikey=a6bf969c-8f30-47ec-b58c-bf23c763b337&lang=ru_RU"></script>
+    <script th:src="@{js/script.js}" ></script>
+    <script th:src="@{js/script-maps.js}" ></script>
+</body>
+</html>
+

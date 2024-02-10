@@ -17,7 +17,9 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public void saveClient(String fullname, String phone, String mail) {
+        phone = phone.replaceAll("[\\s()-+]", "");
+        if (phone.length() == 10) phone = "7" + phone;
         Client client = new Client(fullname, phone, mail);
-        repository.save(client);
+        repository.saveAndFlush(client);
     }
 }
