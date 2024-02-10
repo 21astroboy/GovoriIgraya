@@ -8,6 +8,8 @@
     --text-light: #FFFFFF;
     --border: #D1D1D1;
     --gradient: linear-gradient(90deg, #FAEB99, #BF7DF0);
+    --success: #5cb85c;
+    --error: #b85c5c;
 }
 
 ::-webkit-scrollbar {
@@ -387,11 +389,11 @@ header {
 }
 
 .success {
-    color: var(--bg);
+    color: var(--success);
 }
 
 .error {
-    color: var(--accent);
+    color: var(--error);
 }
 
 .review {
@@ -1041,5 +1043,21 @@ footer {
 @media only screen and (max-width: 420px) {
     html {
         font-size: 12px;
+    }
+}
+
+#error-page {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--bg-1);
+    gap: 3rem;
+    font-size: 2rem;
+    .accent-block {
+        padding: 1rem 3rem;
+        border-radius: 2rem;
     }
 }
