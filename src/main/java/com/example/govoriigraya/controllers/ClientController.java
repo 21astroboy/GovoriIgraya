@@ -2,12 +2,11 @@ package com.example.govoriigraya.controllers;
 
 import com.example.govoriigraya.entities.Client;
 import com.example.govoriigraya.services.ClientService;
+import com.example.govoriigraya.services.ClientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ClientController {
@@ -22,14 +21,17 @@ public class ClientController {
     }
 
     @PostMapping("/saveClient")
-    public String saveClient(@ModelAttribute Client client) {
-        clientService.saveClient(client);
-        return "redirect:/clients/success"; // Redirect to the success page
+    public String saveClient(
+            @RequestParam("fullname") String fullname,
+            @RequestParam("phone") String phone,
+            @RequestParam("mail") String mail) {
+
+        clientService.saveClient(fullname, phone, mail);
+        return "redirect:/clients/success";
     }
 
     @GetMapping("/clients/success")
     public String showSuccessPage() {
         return "success";
     }
-
 }
