@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Jost:wght@500&family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+  <link rel="stylesheet" th:href="@{css/styles.css}">
+  <link rel="icon" type="image/x-icon" th:href="@{assets/icon.svg}">
+  <title>Говори Играя</title>
+</head>
+<body id="admin-page">
+  <div>
+    <div>Добавить модератора в систему</div>
+    <form id="add-moder-form" class="pretty-form">
+      <div class="field" id="phone">
+        <input
+                autocomplete="off"
+                name = "phone"
+                type="phone"
+                placeholder="9276321213"
+                minlength="10"
+                maxlength="10"
+                pattern="^[489][0-9]{9}$"
+                inputmode="numeric"
+                required>
+      </div>
+      <div class="field">
+        <input
+                name = "firstname"
+                type="text"
+                autocomplete="off"
+                placeholder="Имя"
+                maxlength="50"
+                required />
+      </div>
+      <div class="field">
+        <input
+                name = "password"
+                type="text"
+                autocomplete="off"
+                placeholder="Пароль"
+                maxlength="50"
+                required />
+      </div>
+      <p class="submit-status success" id="submition-succcess">Успешно!!</p>
+      <p class="submit-status error" id="submition-error">Проблемы с сетью, пожалуйста, повторите позднее.</p>
+      <button id="action">
+        Добавить
+      </button>
+    </form>
+  </div>
+  <script th:src="@{js/admin.js}"></script>
+</body>
+</html>
