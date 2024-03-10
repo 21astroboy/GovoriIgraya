@@ -1,4 +1,4 @@
-const BASE_URL = 'http://89.111.141.17:3000/api'
+const BASE_URL = 'http://govorigraya.ru/api'
 const REVIEW_ENDPOINT = BASE_URL + '/review'
 const APPOINTMENT_ENDPOINT = BASE_URL + '/appointment'
 
