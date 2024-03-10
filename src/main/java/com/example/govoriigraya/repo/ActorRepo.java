@@ -9,5 +9,6 @@ import java.util.Optional;
 @Repository
 public interface ActorRepo extends JpaRepository<Actor, Long> {
     Optional<Actor> findByToken(String token);
-    Optional<Actor> findByPhoneAndPassword(String phone, String password);
+    Optional<Actor> findByPhone(String phone);
+    Optional<Actor> findByRole(String role);
 }

@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080/api'
+const BASE_URL = 'http://89.111.141.17:3000/api'
 const REVIEW_ENDPOINT = BASE_URL + '/review'
 const APPOINTMENT_ENDPOINT = BASE_URL + '/appointment'
 
@@ -99,30 +99,76 @@ hamburgerLinks.addEventListener('click', e => {
 
 const floatingHeader = document.getElementById('floating-header')
 floatingHeader && document.addEventListener('scroll', e => {
-    if (window.scrollY > 500) {        
-        floatingHeader.style.position = 'sticky'
-        floatingHeader.style.display = 'flex'
+    if (window.scrollY > 850) {
+        floatingHeader.style.pointerEvents = 'auto'
         floatingHeader.style.transform = 'translateY(0%)'
         floatingHeader.style.opacity = '1'
-    } else {        
-        floatingHeader.style.position = 'absolute'
-        floatingHeader.style.display = 'none'
+    } else {
+        floatingHeader.style.pointerEvents = 'none'
         floatingHeader.style.transform = 'translateY(-20%)'
         floatingHeader.style.opacity = '0'
     }
+
+    if (window.scrollY > 700) {
+        floatingHeader.style.maxHeight = floatingHeader.scrollHeight + 'px'
+    } else {
+        floatingHeader.style.maxHeight = null
+    }
 })
 
-const questions = document.getElementById('questions')
-questions?.addEventListener('click', e => {
-    if (e.target.className === 'content-card') {
-        const content = e.target.getElementsByClassName('content')[0]
-        const plus = e.target.getElementsByClassName('plus')[0]
-        if (content.style.display === 'none' || content.style.display === '') {
-            content.style.display = 'flex'
-            plus.style.transform = 'rotate(45deg)'
-        } else if (content?.style.display === 'flex') {
-            content.style.display = 'none'
-            plus.style.transform = 'rotate(0deg)'
+
+const acc = document.getElementsByClassName("accordion")
+let i;
+
+for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", e=> {
+        if ([...e.target.classList].includes('panel')) {
+
+            const content = e.target.getElementsByClassName('content')[0]
+            const plus = e.target.getElementsByClassName('plus')[0]
+            if (content.style.minHeight) {
+                content.style.minHeight = null
+                content.style.maxHeight = null
+                if (plus) plus.style.transform = 'rotate(0deg)'
+            } else {
+                content.style.maxHeight = (1.5 * content.scrollHeight) + "px"
+                content.style.minHeight = (1.5 * content.scrollHeight) + "px"
+                if (plus) plus.style.transform = 'rotate(45deg)'
+            }
         }
-    }    
-})
+    })
+}
+
+const sidescrolls = document.getElementsByClassName('sidescroll')
+for (i = 0; i < sidescrolls.length; i++) {
+    const slider = sidescrolls[i]
+
+    let isDown = false
+    let startX
+    let scrollLeft
+    slider.addEventListener('mouseover', (e) => {
+        if (slider.scrollWidth > slider.clientWidth) {
+            if (isDown) slider.style.cursor = 'grabbing'
+            else slider.style.cursor = 'grab'
+        } else slider.style.cursor = 'initial'
+    })
+
+    slider.addEventListener('mousedown', (e) => {
+        isDown = true
+        startX = e.pageX - slider.offsetLeft
+        scrollLeft = slider.scrollLeft
+    })
+    slider.addEventListener('mouseleave', () => {
+        isDown = false
+    })
+    slider.addEventListener('mouseup', () => {
+        isDown = false
+    })
+    slider.addEventListener('mousemove', (e) => {
+        if(!isDown) return
+        e.preventDefault()
+        const x = e.pageX - slider.offsetLeft
+        const walk = (x - startX) * 2 //scroll-fast
+        slider.scrollLeft = scrollLeft - walk
+    })
+}

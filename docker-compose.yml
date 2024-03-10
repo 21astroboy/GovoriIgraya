@@ -1,0 +1,37 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:15
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: govoriigraya
+    networks:
+      - netgt
+    expose:
+      - 5432
+  server:
+    image: altairka666/govoriigraya-server:latest
+    ports:
+      - "3000:80"
+    depends_on:
+      - db
+    networks:
+      - netgt
+    expose:
+      - 80
+      - 3000
+    volumes:
+      - staticdata:/app/
+networks:
+  netgt:
+    driver: bridge
+volumes:
+  pgdata:
+  staticdata:
+

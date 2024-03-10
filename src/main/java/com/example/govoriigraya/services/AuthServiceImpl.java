@@ -2,7 +2,9 @@ package com.example.govoriigraya.services;
 
 import com.example.govoriigraya.entities.Actor;
 import com.example.govoriigraya.repo.ActorRepo;
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -19,6 +21,9 @@ public class AuthServiceImpl implements AuthService {
     @Autowired
     private PhoneService phoneService;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @Override
     public boolean auth(String token) {
         if (token == null || token.isEmpty()) return false;
@@ -27,6 +32,11 @@ public class AuthServiceImpl implements AuthService {
         if (actor.isEmpty()) return false;
         tokenToActor.put(token, actor.get());
         return true;
+    }
+
+    @Override
+    public boolean checkAdmin() {
+        return actorRepo.findByRole("admin").isPresent();
     }
 
     @Override
@@ -41,13 +51,17 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public void createActor(String phone, String name, String password, String role) {
-        actorRepo.saveAndFlush(new Actor(phoneService.standatrtise(phone), name, password, role));
+        phone = phoneService.standatrtise(phone);
+        if (actorRepo.findByPhone(phone).isEmpty())
+            actorRepo.saveAndFlush(new Actor(phone, name, passwordEncoder.encode(password), role));
     }
 
     @Override
     public Actor login(String phone, String password) {
         phone = phoneService.standatrtise(phone);
-        Optional<Actor> actor = actorRepo.findByPhoneAndPassword(phone, password);
-        return actor.orElse(null);
+        Optional<Actor> actor = actorRepo.findByPhone(phone);
+        if (actor.isEmpty()) return null;
+        if (passwordEncoder.matches(password, actor.get().getPassword())) return actor.get();
+        return null;
     }
 }

@@ -9,7 +9,7 @@ async function initMaps() {
         document.getElementById('moscow-map'),
         {
             location: {
-                center: [37.545173, 55.645698],
+                center: [37.5711732900673, 55.57206306000498],
                 zoom: 13
             }
         },
@@ -19,8 +19,8 @@ async function initMaps() {
         ]
     )
     moscowMap.addChild(new YMapDefaultMarker({
-        coordinates: [37.545173, 55.645698],
+        coordinates: [37.5711732900673, 55.57206306000498],
         color: '#6203DF',
-        popup: {content: 'Москва, Введенского 3к1', position: 'left'}
+        popup: {content: 'Москва, Знаменские Садки, 5б', position: 'left'}
     }))
 }

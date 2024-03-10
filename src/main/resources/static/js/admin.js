@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080/api'
+const BASE_URL = 'http://89.111.141.17:3000/api'
 const ADD_MODER_ENDPOINT = BASE_URL + '/actor/moder'
 
 const initAddModerForm = () => {

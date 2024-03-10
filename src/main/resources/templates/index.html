@@ -13,22 +13,33 @@
     <title>Говори Играя</title>
 </head>
 <body>
+    <header id="floating-header" class="laptop-hide" style="opacity: 0;">
+        <a th:href="@{/}"><img th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a>
+        <a th:href="@{/#illnesses}">с чем мы помогаем?</a>
+        <a th:href="@{/#prices}" class="mobile-hide">услуги</a>
+        <a th:href="@{/contacts}" class="mobile-hide">контакты</a>
+        <a th:href="@{/#reviews}" class="mobile-hide">отзывы</a>
+        <a th:href="@{/#faq}" class="mobile-hide">частые вопросы</a>
+        <a th:href="@{/appointment}" class="mobile-hide accent-text" id="appointment-link-floating">запись</a>
+    </header>
     <header id="main-header">
         <div id="main">
             <div class="col growing">
-                <a th:href="@{/}" class="first-row"><img  th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a>
-                <div class="widescreen-hide links">
-                    <a th:href="@{/#illnesses}">с какими нарушениями помогаем?</a>
-                    <a th:href="@{/#reviews}">отзывы о нас</a>
+                <div class="first-row logo-slot"><a th:href="@{/}" ><img  th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a></div>
+                <div class="widescreen-hide links" id="first-link">
+                    <a th:href="@{/#illnesses}">мы помогаем</a>
+                    <a th:href="@{/#prices}">цены на услуги</a>
                     <a href=""></a>
                 </div>
             </div>
-            <div class="col">
+            <div class="col" id="middle-col">
                 <div class="first-row mobile-hide" id="address">
-                    <div>Москва, Введенского 3к1</div>
+                    <div>Москва, Знаменские Садки, 5б</div>
                     <div>+7 (987) 621-58-09</div>
                 </div>
-                <a th:href="@{/contacts}" class="widescreen-hide" id="maps">мы на картах</a>
+                <div class="widescreen-hide links">
+                    <a th:href="@{/contacts}"  id="maps">контакты</a>
+                </div>
             </div>
             <div class="col growing">
                 <a class="first-row widescreen-hide accent-block" th:href="@{/appointment}" id="appointment-link">ЗАПИСЬ</a>
@@ -39,29 +50,20 @@
                 </div>
                 <div class="links widescreen-hide">
                     <a href=""></a>
-                    <a th:href="@{/#prices}">цены на услуги</a>
-                    <a th:href="@{/#faq}">ответы на частые вопросы</a>
+                    <a th:href="@{/#reviews}">отзывы о нас</a>
+                    <a th:href="@{/#faq}">частые вопросы</a>
                 </div>
             </div>    
         </div>
         <div id="hamburger-links" style="display: none;">
-            <a th:href="@{/contacts}" class="mobile-show">Москва, Введенского 3к1</a>
+            <a th:href="@{/contacts}" class="mobile-show">Москва, Знаменские Садки, 5б</a>
             <a th:href="@{/contacts}" class="mobile-show">+7 (987) 621-58-09</a>
-            <a th:href="@{/#illnesses}">с какими нарушениями помогаем?</a>
-            <a th:href="@{/#reviews}">отзывы о нас</a>
-            <a th:href="@{/#prices}">услуги</a>
+            <a th:href="@{/#illnesses}">мы помогаем</a>
+            <a th:href="@{/#prices}">цены на услуги</a>
             <a th:href="@{/contacts}">контакты</a>
+            <a th:href="@{/#reviews}">отзывы о нас</a>
             <a th:href="@{/appointment}" class="accent-text">запись</a>
         </div>
-    </header>
-    <header id="floating-header" class="laptop-hide" style="opacity: 0;">
-        <a th:href="@{/}"><img th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a>
-        <a th:href="@{/#illnesses}">с чем мы помогаем?</a>
-        <a th:href="@{/#reviews}" class="mobile-hide">отзывы</a>
-        <a th:href="@{/#prices}" class="mobile-hide">услуги</a>
-        <a th:href="@{/#faq}" class="mobile-hide">частые вопросы</a>
-        <a th:href="@{/contacts}" class="mobile-hide">контакты</a>
-        <a th:href="@{/appointment}" class="mobile-hide accent-text">запись</a>
     </header>
     <main>
         <div id="about" class="section">
@@ -158,34 +160,331 @@
                 </div>
             </div>
         </div>
+        <div id="prices" class="section">
+            <div class="header">
+                Услуги
+            </div>
+            <div class="content">
+                <div class="partition">
+                    <div class="header">Логопед</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Диагностика</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">1700 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action">
+                                    <div class="box-gradient">
+                                        <p>ЗАПИСАТЬСЯ</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <p>Разовое занятие</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">1500 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 10 занятий</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">14250 ₽</span><span class="off mobile-hide">15000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+<!--                <div class="partition">-->
+<!--                    <div class="header">Логопед-Дефектолог</div>-->
+<!--                    <div class="cards sidescroll">-->
+<!--                        <div class="card">-->
+<!--                            <div>-->
+<!--                                <p>Диагностика</p>-->
+<!--                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>-->
+<!--                            </div>-->
+<!--                            <div class="data">-->
+<!--                                <p class="price"><span class="real">3500 ₽</span></p>-->
+<!--                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="card">-->
+<!--                            <div>-->
+<!--                                <p>Разовое занятие</p>-->
+<!--                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>-->
+<!--                            </div>-->
+<!--                            <div class="data">-->
+<!--                                <p class="price"><span class="real">3000 ₽</span></p>-->
+<!--                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                        <div class="card subscription">-->
+<!--                            <div>-->
+<!--                                <p>Абонемент</p>-->
+<!--                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>-->
+<!--                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>-->
+<!--                            </div>-->
+<!--                            <div class="data">-->
+<!--                                <p class="price"><span class="accent-block">13500 ₽</span><span class="off">15000 ₽</span></p>-->
+<!--                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <div class="partition">
+                    <div class="header">Дефектолог</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Диагностика</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">2000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action">
+                                    <div class="box-gradient">
+                                        <p>ЗАПИСАТЬСЯ</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <p>Разовое занятие</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">1800 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 10 занятий</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">17100 ₽</span><span class="off mobile-hide">18000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partition">
+                    <div class="header">Нейропсихолог</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Диагностика</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 1ч</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">2000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <p>Разовое занятие</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 50мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">2100 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 10 занятий</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 50мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">19950 ₽</span><span class="off mobile-hide">21000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partition">
+                    <div class="header">Логомассаж</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Один сеанс</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 20мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">990 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 20 сеансов</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 20мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">18810 ₽</span><span class="off mobile-hide">19800 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partition">
+                    <div class="header">Миологопед</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Диагностика</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">1850 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <p>Разовое занятие</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">1650 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 10 занятий</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">15675 ₽</span><span class="off mobile-hide">16500 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partition">
+                    <div class="header">Сенсорная интаграция</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Диагностика</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 1ч</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">2000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <p>Разовое занятие</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 50мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">2100 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 10 занятий</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 50мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">19950 ₽</span><span class="off mobile-hide">21000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="partition">
+                    <div class="header">Коррекция письменной речи</div>
+                    <div class="cards sidescroll">
+                        <div class="card">
+                            <div>
+                                <p>Диагностика</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">2000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action">
+                                    <div class="box-gradient">
+                                        <p>ЗАПИСАТЬСЯ</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div>
+                                <p>Разовое занятие</p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="real">1800 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                        <div class="card subscription">
+                            <div>
+                                <p>Абонемент</p>
+                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 10 занятий</span></p>
+                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
+                            </div>
+                            <div class="data">
+                                <p class="price"><span class="accent-block">17100 ₽</span><span class="off mobile-hide">18000 ₽</span></p>
+                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div id="reviews" class="section">
             <div class="header">Отзывы о нас</div>
-            <div id="items">
+            <div id="items" class="sidescroll">
                 <form id="review-form" class="review">
                     <p class="submit-status success" id="submition-succcess">Успешно доставлено! Отзыв должен пройти модерацию.</p>
                     <p class="submit-status error" id="submition-error">Проблемы с сетью, пожалуйста, попробуйте позднее.</p>
                     <textarea
-                        id = "review-form-textarea"
-                        name="review" 
-                        cols="30" 
-                        rows="18" 
-                        placeholder="Оставьте отзыв, нам всегда приятно получать обратную связь!!" 
-                        required
-                        minlength="14"
-                        maxlength="260"></textarea>
+                            id = "review-form-textarea"
+                            name="review"
+                            cols="30"
+                            rows="18"
+                            placeholder="Оставьте отзыв, нам всегда приятно получать обратную связь!!"
+                            required
+                            minlength="14"
+                            maxlength="260"></textarea>
                     <div id="control">
                         <input
-                            id = "review-form-name"
-                            name="name" 
-                            type="text" 
-                            placeholder="Ваше имя..." 
-                            required
-                            minlength="10"
-                            maxlength="25">
-                        <button 
-                            id = "review-form-button"
-                            type="submit">
-                                <img th:src="@{assets/send.svg}" alt=">">
+                                id = "review-form-name"
+                                name="name"
+                                type="text"
+                                placeholder="Ваше имя..."
+                                required
+                                minlength="10"
+                                maxlength="25">
+                        <button
+                                id = "review-form-button"
+                                type="submit">
+                            <img th:src="@{assets/send.svg}" alt=">">
                         </button>
                     </div>
                     <p class="disclaimer">Нажимая кнопку вы соглашаетесь с <a th:href="@{/privacy}">политикий конфиденциальности</a></p>
@@ -224,285 +523,10 @@
                 </div>
             </div>
         </div>
-        <div id="prices" class="section">
-            <div class="header">
-                Услуги
-            </div>
-            <div class="content">
-                <div class="partition">
-                    <div class="header">Логопед</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Диагностика</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action">
-                                    <div class="box-gradient">
-                                        <p>ЗАПИСАТЬСЯ</p>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">2800 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">13000 ₽</span><span class="off">14000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Логопед-Дефектолог</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Диагностика</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3500 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">13500 ₽</span><span class="off">15000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Нейропсихолог</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Диагностика</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 55мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">4000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 55мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3300 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 55мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">15000 ₽</span><span class="off">16500 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Дефектолог</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">2800 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">13000 ₽</span><span class="off">14000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Логомассаж</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Диагностика</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 30мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">1500 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 30мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">15000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Миологопед</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3500 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">16000 ₽</span><span class="off">17500 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Сенсорная Интеграция</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 55мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3300 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 55мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">15000 ₽</span><span class="off">16500 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Коррекция Письма</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">13500 ₽</span><span class="off">15000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="partition">
-                    <div class="header">Мозжечковая Стимуляция</div>
-                    <div class="cards">
-                        <div class="card">
-                            <div>
-                                <p>Разовое занятие</p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="real">3000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                        <div class="card subscription">
-                            <div>
-                                <p>Абонемент</p>
-                                <p class="icon"><span><img th:src="@{assets/tabs.svg}"> 5 занятий</span></p>
-                                <p class="icon"><span><img th:src="@{assets/clock.svg}"> 45мин</span> </p>
-                            </div>
-                            <div class="data">
-                                <p class="price"><span class="accent-block">13500 ₽</span><span class="off">15000 ₽</span></p>
-                                <a th:href="@{/appointment}" class="action"><div class="box-gradient"><p>ЗАПИСАТЬСЯ</p></div></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div id="faq" class="section">
             <div class="header">Частые вопросы</div>
-            <div class="content" id="questions">
-                <div class="content-card">
+            <div class="content accordion" id="questions">
+                <div class="content-card panel">
                     <div class="header">
                         <span>Во сколько ребенок должен заговорить?</span>
                         <span class="plus"></span>
@@ -512,7 +536,7 @@
                         <p>К 2 годам должны появиться фразы.</p>
                     </div>
                 </div>
-                <div class="content-card">
+                <div class="content-card panel">
                     <div class="header">
                         <span>С какого возраста нужно обращаться к логопеду?</span>
                         <span class="plus"></span>
@@ -521,7 +545,7 @@
                         С 4 лет, именно с этого возраста артикуляционный аппарат ребенка физиологически готов к определенным нагрузкам.
                     </div>
                 </div>
-                <div class="content-card">
+                <div class="content-card panel">
                     <div class="header">
                         <span>В каком возрасте должен появиться звук Р?</span>
                         <span class="plus"></span>
@@ -531,7 +555,7 @@
                         <p>Если у ребенка к 4 годам формируется горловой или иной искаженный звук Р, нужно обратиться к логопеду раньше.</p>
                     </div>
                 </div>
-                <div class="content-card">
+                <div class="content-card panel">
                     <div class="header">
                         <span>Какое количество занятий может понадобиться?</span>
                         <span class="plus"></span>
@@ -540,7 +564,7 @@
                         Примерное количество занятий сможет сказать специалист исходя из результатов диагностики.
                     </div>
                 </div>
-                <div class="content-card">
+                <div class="content-card panel">
                     <div class="header">
                        <span> Что должно беспокоить родителей?</span>
                        <span class="plus"></span>
@@ -552,7 +576,7 @@
                         <p>Однако Вы очень поможете ребенку и ускорите предстоящую работу с логопедом если начнете совместно ежедневно выполнять артикуляционную гимнастику в течении 5мин.</p>
                     </div>
                 </div>
-                <div class="content-card">
+                <div class="content-card panel">
                     <div class="header">
                         <span>Почему ребенок путает звуки в речи или на письме?</span>
                         <span class="plus"></span>
@@ -566,7 +590,7 @@
         </div>
     </main>
     <footer>
-        <img th:src="@{assets/logo.svg}" alt="логотип" id="logo">
+        <img th:src="@{assets/logo.svg}" alt="логотип">
         <div id="line"></div>
         <div id="info">
             <a th:href="@{/}">говорииграя 2014-2024 все права защищены</a>

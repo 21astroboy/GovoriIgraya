@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:8080/api'
+const BASE_URL = 'http://89.111.141.17:3000/api'
 const DOWNLOAD_DAY_APPOINTMENTS = BASE_URL + '/appointment'
 
 const initDownloadDayAppointmentsForm = () => {

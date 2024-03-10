@@ -16,6 +16,13 @@ public class ActorController {
     @Autowired
     private AuthService authService;
 
+    @PostMapping(value = "/actor/admin", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Object> createAdmin(@RequestParam MultiValueMap<String, String> form) {
+        if (authService.checkAdmin()) return ResponseEntity.badRequest().build();
+        authService.createActor(form.getFirst("phone"), form.getFirst("firstname"), form.getFirst("password"), "admin");
+        return ResponseEntity.accepted().build();
+    }
+
     @PostMapping(value = "/actor/moder", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public ResponseEntity<Object> createModer(@RequestParam MultiValueMap<String, String> form) {
         authService.createActor(form.getFirst("phone"), form.getFirst("firstname"), form.getFirst("password"), "moder");
