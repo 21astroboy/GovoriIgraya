@@ -333,6 +333,7 @@ header {
 
 .panel {
     overflow: hidden;
+    cursor: pointer;
 }
 
 .panel .content {
@@ -340,18 +341,6 @@ header {
     max-height: 0;
     transition: all 0.2s ease-out;
     box-sizing: border-box;
-}
-
-@keyframes pulse {
-    from {
-        box-shadow: 0 4px transparent;
-    }
-    50% {
-        box-shadow: 0 0 1rem rgba(0, 0, 0, .7);
-    }
-    to {
-        box-shadow: 0 4px transparent;
-    }
 }
 
 #illnesses {
@@ -711,7 +700,7 @@ footer #info a {
 }
 
 #faq .content-card .header {
-    font-size: 2.5rem;
+    font-size: 2rem;
     display: flex;
     justify-content: space-between;
 }
@@ -723,7 +712,7 @@ footer #info a {
 #faq .content-card .header,
 #faq .content-card .content {
     position: relative;
-    
+    margin-left: 0.25rem;
 }
 
 #faq .content-card .header::before,
@@ -768,7 +757,7 @@ footer #info a {
 }
 
 #faq .content-card .content {
-    margin: auto 0;
+    line-height: 1.25;
     font-size: 1.5rem;
 }
 
@@ -937,8 +926,9 @@ footer #info a {
 }
 
 .mobile-show, 
-.widescreen-show {
-    display: none;
+.widescreen-show,
+.laptop-show {
+    display: none !important;
 }
 
 @media only screen and (max-width: 1600px) {
@@ -974,7 +964,7 @@ footer #info a {
     }
 
     .widescreen-show {
-        display: flex;
+        display: flex !important;
     }
 
     #about {
@@ -1017,6 +1007,10 @@ footer #info a {
 
     .laptop-hide {
         display: none !important;
+    }
+
+    .laptop-show {
+        display: flex !important;
     }
 
     .illness {
@@ -1073,7 +1067,7 @@ footer #info a {
     }
 
     .mobile-show {
-        display: flex;
+        display: flex !important;
     }
     
     .map-section {
@@ -1085,23 +1079,19 @@ footer #info a {
         width: 90vw;
     }
 
-    .illness {
-        width: 70%;
-        justify-content: center;
-    }
-
     #left-col {
         gap: 3rem;
     }
 
-    #slogan {
-        align-items: center;       
+    #about #slogan {
+        align-items: center;
+        font-size: 2.25rem !important;
     }
 
-    #slogan #main {
+    #about #main {
+        font-size: 2.25rem !important;
         justify-content: center;
-        font-size: 2.5rem !important;
-        gap: 2rem !important;
+        gap: 1.5rem !important;
     } 
 
     #takes {
@@ -1109,6 +1099,16 @@ footer #info a {
         justify-content: flex-start;
         align-items: center;
         gap: 2rem !important;
+    }
+
+    #illnesses .illness {
+        padding: 0.75rem 1.5rem;
+        font-size: 1.5rem;
+    }
+
+    #illnesses .illness img {
+        width: 28px;
+        height: 28px;
     }
 
     #faq .content-card .header {
@@ -1136,7 +1136,6 @@ footer #info a {
         font-size: 1.5rem !important;
     }
 
-
 }
 
 @media only screen and (max-width: 540px) {
@@ -1158,6 +1157,25 @@ footer #info a {
 
     #faq .content-card .content {
         font-size: 1.25rem !important;
+    }
+
+    #about #slogan {
+        font-size: 2rem !important;
+    }
+
+    #about #main {
+        font-size: 2rem !important;
+    }
+
+    #illnesses .illness {
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 1.25rem;
+    }
+
+    #illnesses .illness img {
+        width: 20px;
+        height: 20px;
     }
 }
 
