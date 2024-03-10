@@ -12,32 +12,36 @@
     <title>Говори Играя</title>
 </head>
 <body>
-    <header id="main-header">
-        <div id="main">
-            <div class="col growing">
-                <a th:href="@{/}" class="first-row logo-slot"><img  th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a>
-            </div>
-            <div class="mobile-hide">
-                Логопедический Центр
-            </div>
-            <div class="col growing">
-                <a class="first-row widescreen-hide accent-block" th:href="@{/appointment}" id="appointment-link">ЗАПИСЬ</a>
-                <div class="hamburger widescreen-show">
-                    <span class="line" id="line1"></span>
-                    <span class="line" id="line2"></span>
-                    <span class="line" id="line3"></span>
-                </div>
-            </div>    
+<header id="main-header">
+    <div id="main">
+        <div class="col growing">
+            <div class="first-row logo-slot"><a th:href="@{/}" ><img  th:src="@{assets/logo.svg}" alt="говориграя" id="logo"></a></div>
         </div>
-        <div id="hamburger-links" style="display: none;">
-            <a th:href="@{/contacts}" class="mobile-show">Москва, Знаменские Садки, 5б</a>
-            <a th:href="@{/contacts}" class="mobile-show">+7 (987) 621-58-09</a>
-            <a th:href="@{/#illnesses}">с какими нарушениями помогаем?</a>
-            <a th:href="@{/#reviews}">отзывы о нас</a>
-            <a th:href="@{/#prices}">цены на услуги</a>
-            <a th:href="@{/appointment}" class="accent-text">запись</a>
+        <div class="col" id="middle-col">
+            <div class="first-row mobile-hide" id="address">
+                <div>Москва, Знаменские Садки, 5б</div>
+                <div>+7 (987) 621-58-09</div>
+            </div>
         </div>
-    </header>
+        <div class="col growing" id="second-header-col">
+            <a class="first-row widescreen-hide accent-block" th:href="@{/appointment}" id="appointment-link">ЗАПИСЬ</a>
+            <div class="hamburger widescreen-show">
+                <span class="line" id="line1"></span>
+                <span class="line" id="line2"></span>
+                <span class="line" id="line3"></span>
+            </div>
+        </div>
+    </div>
+    <div id="hamburger-links" style="display: none;">
+        <a th:href="@{/contacts}" class="mobile-show">Москва, Знаменские Садки, 5б</a>
+        <a th:href="@{/contacts}" class="mobile-show">+7 (987) 621-58-09</a>
+        <a th:href="@{/#illnesses}">мы помогаем</a>
+        <a th:href="@{/#prices}">цены на услуги</a>
+        <a th:href="@{/contacts}">контакты</a>
+        <a th:href="@{/#reviews}">отзывы о нас</a>
+        <a th:href="@{/appointment}" class="accent-text">запись</a>
+    </div>
+</header>
     <main id="contacts-page" class="section">
         <div id="contacts-section">
             <div class="block">

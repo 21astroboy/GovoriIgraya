@@ -146,12 +146,6 @@ for (i = 0; i < sidescrolls.length; i++) {
     let isDown = false
     let startX
     let scrollLeft
-    slider.addEventListener('mouseover', (e) => {
-        if (slider.scrollWidth > slider.clientWidth) {
-            if (isDown) slider.style.cursor = 'grabbing'
-            else slider.style.cursor = 'grab'
-        } else slider.style.cursor = 'initial'
-    })
 
     slider.addEventListener('mousedown', (e) => {
         isDown = true
