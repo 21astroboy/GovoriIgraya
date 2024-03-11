@@ -1,4 +1,4 @@
-const BASE_URL = 'http://govorigraya.ru/api'
+const BASE_URL = 'https://govorigraya.ru/api'
 const ADD_MODER_ENDPOINT = BASE_URL + '/actor/moder'
 
 const initAddModerForm = () => {

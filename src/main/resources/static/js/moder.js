@@ -1,4 +1,4 @@
-const BASE_URL = 'http://govorigraya.ru/api'
+const BASE_URL = 'https://govorigraya.ru/api'
 const DOWNLOAD_DAY_APPOINTMENTS = BASE_URL + '/appointment'
 
 const initDownloadDayAppointmentsForm = () => {
